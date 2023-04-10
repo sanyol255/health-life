@@ -13,8 +13,8 @@
         <nav class="bg-[#090] h-16 text-white w-full fixed top-0">
             <ul class="flex flex-row justify-center">
                 <li class="mt-5 space-x-32">
-                    <a href="#" class="hover:text-orange-300">Home</a>
-                    <a href="#" class="hover:text-orange-300">Health tests</a>
+                    <a href="{{ route('index') }}" class="hover:text-orange-300">Home</a>
+                    <a href="{{ route('health-tests') }}" class="hover:text-orange-300">Health tests</a>
                     <a href="#" class="hover:text-orange-300">Workout exercises</a>
                     <a href="#" class="hover:text-orange-300">Articles</a>
                     <a href="#" class="hover:text-orange-300">Login/Sign up</a>
