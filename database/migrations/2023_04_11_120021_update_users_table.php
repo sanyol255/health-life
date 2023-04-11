@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('name');
-            $table->string('firstname', 255)->after('id');
-            $table->string('lastname', 255)->after('firstname');
+            $table->string('firstname', 255)->after('id')->default('');
+            $table->string('lastname', 255)->after('firstname')->default('');
             $table->integer('age')->nullable()->after('email');
             $table->double('height', 3, 2)->nullable()->after('age');
             $table->double('weight', 3, 1)->nullable()->after('height');

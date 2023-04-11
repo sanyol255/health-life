@@ -21,3 +21,4 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/health-tests', [HealthTestController::class, 'index'])->name('health-tests');
 
 Route::get('/register', [AuthController::class, 'index'])->name('auth.index');
+Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
