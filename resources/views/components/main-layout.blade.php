@@ -17,7 +17,7 @@
                     <a href="{{ route('health-tests') }}" class="hover:text-orange-300">Health tests</a>
                     <a href="#" class="hover:text-orange-300">Workout exercises</a>
                     <a href="#" class="hover:text-orange-300">Articles</a>
-                    <a href="#" class="hover:text-orange-300">Login/Sign up</a>
+                    <a href="{{ route('auth.index') }}" class="hover:text-orange-300">Login/Sign up</a>
                 </li>
             </ul>
         </nav>
