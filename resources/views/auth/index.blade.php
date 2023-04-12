@@ -32,5 +32,6 @@
         <div>
             <input type="submit" value="Register" class="bg-green-600 text-white w-60 h-8 mt-4 rounded-2xl hover:bg-green-900 hover:text-orange-300">
         </div>
+        <p class="mt-2">Already have an account? <a href="{{ route('auth.login') }}" class="text-blue-500 hover:text-orange-500">Log in</a> here</p>
     </form>
 </x-main-layout>

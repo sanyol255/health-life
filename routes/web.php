@@ -22,3 +22,5 @@ Route::get('/health-tests', [HealthTestController::class, 'index'])->name('healt
 
 Route::get('/register', [AuthController::class, 'index'])->name('auth.index');
 Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
+Route::get('/login', [AuthController::class, 'loginForm'])->name('auth.login');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
