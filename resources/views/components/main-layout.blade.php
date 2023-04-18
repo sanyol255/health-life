@@ -8,6 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         @vite('resources/css/app.css')
         <title>Health Life{{ $title ?? "" }}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     </head>
     <body class="bg-[#ffc] text-[#006]">
         <nav class="bg-[#090] h-16 text-white w-full fixed top-0">
@@ -17,7 +18,11 @@
                     <a href="{{ route('health-tests') }}" class="hover:text-orange-300">Health tests</a>
                     <a href="#" class="hover:text-orange-300">Workout exercises</a>
                     <a href="#" class="hover:text-orange-300">Articles</a>
-                    <a href="{{ route('auth.index') }}" class="hover:text-orange-300">Login/Sign up</a>
+                        @if(isset(auth()->user()->id))
+                            <a href="{{ route('auth.logout') }}" class="hover:text-orange-300">{{auth()->user()->firstname . ' ' . auth()->user()->lastname}} (logout)</a>
+                        @else
+                            <a href="{{ route('auth.index') }}" class="hover:text-orange-300">Login/Sign up</a>
+                        @endif
                 </li>
             </ul>
         </nav>

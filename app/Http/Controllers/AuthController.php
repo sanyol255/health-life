@@ -21,6 +21,8 @@ class AuthController extends Controller
         $fields['password'] = Hash::make($fields['password']);
 
         User::create($fields);
+
+        return redirect('/')->with('success', 'You have successfully registered!');
     }
 
     public function loginForm()
@@ -31,12 +33,17 @@ class AuthController extends Controller
     {
         $fields = $request->validated();
 
-        if (auth()->attempt(
-            ['email' => $fields['email']],
-            ['password' => $fields['password']]
-        )) {
+        if (auth()->attempt(['email' => $fields['email'], 'password' => $fields['password']])) {
             $request->session()->regenerate();
-            return redirect('/')->with('success', 'You have logged in!');
+            return redirect()->route('index')->with('success', 'You have logged in!');
+        } else {
+            return redirect()->route('auth.login')->with('failure', 'Invalid credentials.');
         }
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('index')->with('success', 'You have logged out');
     }
 }

@@ -6,27 +6,27 @@
         @csrf
         <div class="m-2">
             <label for="firstname">First name: </label><br>
-            <input value="{{ old('firstname') }}" type="text" name="firstname" id="firstname" class="mt-2 border-solid border-2  border-green-600 rounded-md">
+            <input value="{{ old('firstname') }}" type="text" name="firstname" id="firstname" class="pl-1 mt-2 border-solid border-2  border-green-600 rounded-md">
             <x-validation-error :field="'firstname'" />
         </div>
         <div class="m-2">
             <label for="lastname">Last name: </label><br>
-            <input value="{{ old('lastname') }}" type="text" name="lastname" id="lastname" class="mt-2 border-solid border-2  border-green-600 rounded-md">
+            <input value="{{ old('lastname') }}" type="text" name="lastname" id="lastname" class="pl-1 mt-2 border-solid border-2  border-green-600 rounded-md">
             <x-validation-error :field="'lastname'" />
         </div>
         <div class="m-2">
             <label for="email">Email: </label><br>
-            <input value="{{ old('email') }}" type="email" name="email" id="email"  class=" mt-2 border-solid border-2  border-green-600 rounded-md">
+            <input value="{{ old('email') }}" type="email" name="email" id="email"  class="pl-1 mt-2 border-solid border-2  border-green-600 rounded-md">
             <x-validation-error :field="'email'" />
         </div>
         <div class="m-2">
             <label for="password">Password: </label><br>
-            <input type="password" name="password" id="password"  class=" mt-2 border-solid border-2  border-green-600 rounded-md">
+            <input type="password" name="password" id="password"  class="pl-1 mt-2 border-solid border-2  border-green-600 rounded-md">
             <x-validation-error :field="'password'" />
         </div>
         <div class="m-2">
             <label for="password-confirmation">Password confirmation: </label><br>
-            <input type="password" name="password_confirmation" id="password-confirmation"  class=" mt-2 border-solid border-2  border-green-600 rounded-md">
+            <input type="password" name="password_confirmation" id="password-confirmation"  class="pl-1 mt-2 border-solid border-2  border-green-600 rounded-md">
             <x-validation-error :field="'password_confirmation'" />
         </div>
         <div>
