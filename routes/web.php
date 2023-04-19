@@ -18,7 +18,7 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
-Route::get('/health-tests', [HealthTestController::class, 'index'])->name('health-tests');
+Route::get('/health-tests', [HealthTestController::class, 'index'])->name('health-tests')->middleware('loggedIn');
 
 Route::get('/register', [AuthController::class, 'index'])->name('auth.index');
 Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
