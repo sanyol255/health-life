@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-main-layout :title="' - Body Mass Index'">
     <header>
         <h1 class="text-2xl text-center mb-3">Body mass index</h1>
     </header>
