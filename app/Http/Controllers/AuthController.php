@@ -20,7 +20,8 @@ class AuthController extends Controller
 
         $fields['password'] = Hash::make($fields['password']);
 
-        User::create($fields);
+        $user = User::create($fields);
+        auth()->login($user);
 
         return redirect('/')->with('success', 'You have successfully registered!');
     }
