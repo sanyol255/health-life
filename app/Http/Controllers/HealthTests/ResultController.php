@@ -4,6 +4,7 @@ namespace App\Http\Controllers\HealthTests;
 
 use App\Http\Controllers\Controller;
 use App\Models\BodyMassIndex as Bmi;
+use App\Models\RuffierIndex;
 
 class ResultController extends Controller
 {
@@ -11,6 +12,7 @@ class ResultController extends Controller
     {
 //        $bmi = Bmi::all()->where('user_id', auth()->user()->id)->toArray();
         $bmi = Bmi::all()->where('user_id', auth()->user()->id)->last();
-        return view('health-tests.show', compact('bmi'));
+        $ruffierIndex = RuffierIndex::all()->where('user_id', auth()->user()->id)->last();
+        return view('health-tests.show', compact('bmi', 'ruffierIndex'));
     }
 }

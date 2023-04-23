@@ -6,6 +6,7 @@ use App\Http\Controllers\HealthTestController;
 use App\Http\Controllers\HealthTests\ResultController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HealthTests\BmiController;
+use App\Http\Controllers\HealthTests\RuffierIndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,6 @@ Route::middleware('loggedIn')->group(function () {
     Route::get('/health-tests/results', [ResultController::class, 'show'])->name('health-tests.results');
     Route::get('/health-tests/bmi/', [BmiController::class, 'index'])->name('bmi.index');
     Route::post('/health-tests/bmi/', [BmiController::class, 'store'])->name('bmi.store');
+    Route::get('/health-tests/ruffier/', [RuffierIndexController::class, 'index'])->name('ruffier.index');
+    Route::post('/health-tests/ruffier/', [RuffierIndexController::class, 'store'])->name('ruffier.store');
 });
