@@ -1,9 +1,25 @@
-<x-main-layout>
+<x-main-layout :title="' - Pushups'">
     <header>
         <h2 class="text-2xl text-center">Pushups</h2>
-        <section class="flex flex-row justify-center mt-6 space-x-32">
-            <span class="bg-[#0275d8] text-white p-3 rounded-md hover:bg-[#034680] hover:text-orange-300"><a href="#">Regular pushups</a></span>
-            <span class="bg-[#5cb85c] text-white p-3 rounded-md hover:bg-[#0c570c] hover:text-orange-300"><a href="#">Wide pushups</a></span>
-        </section>
     </header>
+    <main>
+        <section>
+            <form action="{{ route('pushups.store') }}" method="POST">
+                @csrf
+                <div class="text-center mt-4">
+                    <label for="regular">Amount of regular pushups: </label><br>
+                    <input type="number" name="regular" id="regular" class="pl-1 mt-2 border-solid border-2  border-green-600 rounded-md">
+                    <x-validation-error />
+                </div>
+                <div class="text-center mt-4">
+                    <label for="wide">Amount of pushups: </label><br>
+                    <input type="number" name="wide" id="wide" class="pl-1 mt-2 border-solid border-2  border-green-600 rounded-md">
+                    <x-validation-error />
+                </div>
+                <div class="text-center mt-4">
+                    <input type="submit" value="Save result" class=" bg-green-600 text-white w-60 h-8 mt-4 rounded-2xl hover:bg-green-900 hover:text-orange-300">
+                </div>
+            </form>
+        </section>
+    </main>
 </x-main-layout>

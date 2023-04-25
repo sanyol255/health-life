@@ -38,5 +38,7 @@ Route::middleware('loggedIn')->group(function () {
     Route::post('/health-tests/ruffier/', [RuffierIndexController::class, 'store'])->name('ruffier.store');
 
     Route::get('/workout/', [WorkoutController::class, 'index'])->name('workout.index');
-    Route::get('/workout/pushups/', [PushupsController::class, 'index'])->name('pushups.index');
+    Route::get('/workout/statistic', [WorkoutController::class, 'getStatistic'])->name('workout.statistic');
+    Route::get('/workout/pushups', [PushupsController::class, 'index'])->name('pushups.index');
+    Route::post('/workout/pushups', [PushupsController::class, 'store'])->name('pushups.store');
 });
