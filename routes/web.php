@@ -11,6 +11,7 @@ use App\Http\Controllers\Workout\WorkoutController;
 use App\Http\Controllers\Workout\PushupsController;
 use App\Http\Controllers\Workout\PullupsController;
 use App\Http\Controllers\Workout\SquatsController;
+use App\Http\Controllers\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,4 +48,6 @@ Route::middleware('loggedIn')->group(function () {
     Route::post('/workout/pullups', [PullupsController::class, 'store'])->name('pullups.store');
     Route::get('/workout/squats', [SquatsController::class, 'index'])->name('squats.index');
     Route::post('/workout/squats', [SquatsController::class, 'store'])->name('squats.store');
+
+    Route::resource('articles', ArticlesController::class);
 });
