@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateArticleRequest;
+use App\Models\Article;
 
 class ArticlesController extends Controller
 {
@@ -11,7 +12,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return view('articles.index');
+        $articles = Article::all();
+        return view('articles.index', compact('articles'));
     }
 
     /**
@@ -25,9 +27,14 @@ class ArticlesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateArticleRequest $request)
     {
-        //
+        $fields = $request->validated();
+        $fields['user_id'] = auth()->user()->id;
+
+        Article::create($fields);
+
+        return redirect()->route('articles.index')->with('success', 'Article was saved.');
     }
 
     /**
