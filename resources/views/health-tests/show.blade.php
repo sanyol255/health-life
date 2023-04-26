@@ -22,11 +22,6 @@
                     <td class="border-solid border-amber-800 border-2 p-2 text-center">{{ $ruffierIndex->value ?? '' }}</td>
                     <td class="border-solid border-amber-800 border-2 p-2 text-center">{{ $ruffierIndex->description ?? '' }}</td>
                 </tr>
-                <tr>
-                    <td class="border-solid border-amber-800 border-2 p-2 text-center">Hypoxia test result</td>
-                    <td class="border-solid border-amber-800 border-2 p-2 text-center">{{ $hypoxiaTestResult->value ?? '' }}</td>
-                    <td class="border-solid border-amber-800 border-2 p-2 text-center">{{ $hypoxiaTestResult->description ?? '' }}</td>
-                </tr>
             </tbody>
         </table>
     </main>

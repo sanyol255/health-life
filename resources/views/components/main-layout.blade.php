@@ -16,7 +16,7 @@
                 <li class="mt-5 space-x-32">
                     <a href="{{ route('index') }}" class="hover:text-orange-300">Home</a>
                     <a href="{{ route('health-tests') }}" class="hover:text-orange-300">Health tests</a>
-                    <a href="#" class="hover:text-orange-300">Workout exercises</a>
+                    <a href="{{ route('workout.index') }}" class="hover:text-orange-300">Workout exercises</a>
                     <a href="#" class="hover:text-orange-300">Articles</a>
                         @if(isset(auth()->user()->id))
                             <a href="{{ route('auth.logout') }}" class="hover:text-orange-300">{{auth()->user()->firstname . ' ' . auth()->user()->lastname}} (logout)</a>

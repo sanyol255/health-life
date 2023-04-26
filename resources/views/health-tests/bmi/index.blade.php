@@ -34,7 +34,7 @@
                     <input type="number" id="height" name="height" class="pl-1 mt-2 border-solid border-2  border-green-600 rounded-md" step="0.01" placeholder="Height in meters, f. ex. 1.75">
                 </div>
                 <div>
-                    <input type="submit" value="Calculate BMI" class="bg-green-600 text-white w-60 h-8 mt-4 rounded-2xl hover:bg-green-900 hover:text-orange-300">
+                    <input type="submit" value="Calculate BMI" class="cursor-pointer bg-green-600 text-white w-60 h-8 mt-4 rounded-2xl hover:bg-green-900 hover:text-orange-300">
                 </div>
             </form>
         </section>

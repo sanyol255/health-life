@@ -7,6 +7,10 @@ use App\Http\Controllers\HealthTests\ResultController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HealthTests\BmiController;
 use App\Http\Controllers\HealthTests\RuffierIndexController;
+use App\Http\Controllers\Workout\WorkoutController;
+use App\Http\Controllers\Workout\PushupsController;
+use App\Http\Controllers\Workout\PullupsController;
+use App\Http\Controllers\Workout\SquatsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +38,13 @@ Route::middleware('loggedIn')->group(function () {
     Route::post('/health-tests/bmi/', [BmiController::class, 'store'])->name('bmi.store');
     Route::get('/health-tests/ruffier/', [RuffierIndexController::class, 'index'])->name('ruffier.index');
     Route::post('/health-tests/ruffier/', [RuffierIndexController::class, 'store'])->name('ruffier.store');
+
+    Route::get('/workout/', [WorkoutController::class, 'index'])->name('workout.index');
+    Route::get('/workout/statistic', [WorkoutController::class, 'getStatistic'])->name('workout.statistic');
+    Route::get('/workout/pushups', [PushupsController::class, 'index'])->name('pushups.index');
+    Route::post('/workout/pushups', [PushupsController::class, 'store'])->name('pushups.store');
+    Route::get('/workout/pullups', [PullupsController::class, 'index'])->name('pullups.index');
+    Route::post('/workout/pullups', [PullupsController::class, 'store'])->name('pullups.store');
+    Route::get('/workout/squats', [SquatsController::class, 'index'])->name('squats.index');
+    Route::post('/workout/squats', [SquatsController::class, 'store'])->name('squats.store');
 });
