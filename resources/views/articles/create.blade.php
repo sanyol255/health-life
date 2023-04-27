@@ -11,6 +11,7 @@
                 <x-validation-error :field="'title'" />
             </div>
             <div class="text-center mt-4">
+                <label for="body">Article text: </label><br>
                 <textarea name="body" id="body" cols="40" rows="10" class="pl-1 mt-2 border-solid border-2  border-green-600 rounded-md">{{ old('body') }}</textarea>
                 <x-validation-error :field="'body'" />
             </div>

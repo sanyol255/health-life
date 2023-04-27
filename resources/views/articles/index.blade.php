@@ -11,7 +11,7 @@
             @foreach($articles as $article)
                 <article class="mb-4">
                     <h2 class="text-center text-xl mb-2">
-                        <a href="#" class="hover:text-teal-600">{{ $article->title }}</a>
+                        <a href="{{ route('articles.show', $article->id) }}" class="hover:text-teal-600">{{ $article->title }}</a>
                     </h2>
                     <p class="indent-12">{{ $article->body}}</p>
                 </article>
