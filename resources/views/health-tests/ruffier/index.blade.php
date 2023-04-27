@@ -39,7 +39,7 @@
                     </li>
                 </ol>
                 <div>
-                    <input type="submit" value="Calculate Ruffier index" class="ml-8 bg-green-600 text-white w-60 h-8 mt-4 rounded-2xl hover:bg-green-900 hover:text-orange-300">
+                    <input type="submit" value="Calculate Ruffier index" class="cursor-pointer ml-8 bg-green-600 text-white w-60 h-8 mt-4 rounded-2xl hover:bg-green-900 hover:text-orange-300">
                 </div>
             </form>
         </section>
