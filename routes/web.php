@@ -32,6 +32,8 @@ Route::get('/login', [AuthController::class, 'loginForm'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
+Route::get('articles', [ArticlesController::class, 'index'])->name('articles.index');
+
 Route::middleware('loggedIn')->group(function () {
     Route::get('/health-tests', [HealthTestController::class, 'index'])->name('health-tests');
     Route::get('/health-tests/results', [ResultController::class, 'show'])->name('health-tests.results');
@@ -49,5 +51,10 @@ Route::middleware('loggedIn')->group(function () {
     Route::get('/workout/squats', [SquatsController::class, 'index'])->name('squats.index');
     Route::post('/workout/squats', [SquatsController::class, 'store'])->name('squats.store');
 
-    Route::resource('articles', ArticlesController::class);
+    Route::get('articles/create', [ArticlesController::class, 'create'])->name('articles.create');
+    Route::post('articles', [ArticlesController::class, 'store'])->name('articles.store');
+    Route::get('articles/{article}', [ArticlesController::class, 'show'])->name('articles.show');
+    Route::get('articles/{article}/edit', [ArticlesController::class, 'edit'])->name('articles.edit');
+    Route::patch('articles/{article}', [ArticlesController::class, 'update'])->name('articles.update')->can('update', 'article');
+    Route::delete('articles/{article}', [ArticlesController::class, 'destroy'])->name('articles.destroy');
 });
