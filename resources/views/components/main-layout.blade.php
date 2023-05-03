@@ -28,7 +28,7 @@
         </nav>
         <div class="mt-20"></div>
         {{ $slot }}
-        <div class="mb-16"></div>
+        <div class="mb-20"></div>
         <footer class="fixed bottom-0 bg-[#090] text-white w-full h-12 text-center pt-3">
             <i>&copy;Health Life {{ date('Y') }}</i>
         </footer>
