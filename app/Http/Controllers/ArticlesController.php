@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateArticleRequest;
+use App\Http\Requests\EditArticleRequest;
 use App\Models\Article;
 
 class ArticlesController extends Controller
@@ -40,37 +41,34 @@ class ArticlesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Article $article)
     {
-        $article = Article::findOrFail($id);
         return view('articles.show', compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Article $article)
     {
-        $article = Article::findOrFail($id);
         return view('articles.edit', compact('article'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(CreateArticleRequest $request, string $id)
+    public function update(EditArticleRequest $request, Article $article)
     {
-        $article = $request->validated();
-        Article::whereId($id)->update($article);
+        $fields = $request->validated();
+        $article->update($fields);
         return redirect()->route('articles.index')->with('success', 'Article was updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Article $article)
     {
-        $article = Article::findOrFail($id);
         $article->delete();
         return redirect()->route('articles.index')->with('success', 'The article was deleted');
     }
