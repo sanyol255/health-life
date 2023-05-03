@@ -54,7 +54,7 @@ Route::middleware('loggedIn')->group(function () {
     Route::get('articles/create', [ArticlesController::class, 'create'])->name('articles.create');
     Route::post('articles', [ArticlesController::class, 'store'])->name('articles.store');
     Route::get('articles/{article}', [ArticlesController::class, 'show'])->name('articles.show');
-    Route::get('articles/{article}/edit', [ArticlesController::class, 'edit'])->name('articles.edit');
-    Route::patch('articles/{article}', [ArticlesController::class, 'update'])->name('articles.update')->can('update', 'article');
-    Route::delete('articles/{article}', [ArticlesController::class, 'destroy'])->name('articles.destroy');
+    Route::get('articles/{article}/edit', [ArticlesController::class, 'edit'])->name('articles.edit')->middleware('can:update,article');
+    Route::patch('articles/{article}', [ArticlesController::class, 'update'])->name('articles.update')->middleware('can:update,article');
+    Route::delete('articles/{article}', [ArticlesController::class, 'destroy'])->name('articles.destroy')->middleware('can:destroy,article');
 });
