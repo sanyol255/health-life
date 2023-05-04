@@ -7,6 +7,7 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
         <title>Health Life{{ $title ?? "" }}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     </head>
@@ -19,7 +20,13 @@
                     <a href="{{ route('workout.index') }}" class="hover:text-orange-300">Workout exercises</a>
                     <a href="{{ route('articles.index') }}" class="hover:text-orange-300">Articles</a>
                         @if(isset(auth()->user()->id))
-                            <a href="{{ route('auth.logout') }}" class="hover:text-orange-300">{{auth()->user()->firstname . ' ' . auth()->user()->lastname}} (logout)</a>
+                            <span id="profile"
+                                  data-firstname={{ auth()->user()->firstname }}
+                                  data-lastname={{ auth()->user()->lastname }}
+                                  data-profile={{ route('profile.index', auth()->user()->id) }}
+                                  data-logout={{ route('auth.logout') }}>
+
+                            </span>
                         @else
                             <a href="{{ route('auth.index') }}" class="hover:text-orange-300">Login/Sign up</a>
                         @endif

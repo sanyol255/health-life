@@ -12,6 +12,7 @@ use App\Http\Controllers\Workout\PushupsController;
 use App\Http\Controllers\Workout\PullupsController;
 use App\Http\Controllers\Workout\SquatsController;
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,13 +36,14 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::get('articles', [ArticlesController::class, 'index'])->name('articles.index');
 
 Route::middleware('loggedIn')->group(function () {
+    //Health tests routes
     Route::get('/health-tests', [HealthTestController::class, 'index'])->name('health-tests');
     Route::get('/health-tests/results', [ResultController::class, 'show'])->name('health-tests.results');
     Route::get('/health-tests/bmi/', [BmiController::class, 'index'])->name('bmi.index');
     Route::post('/health-tests/bmi/', [BmiController::class, 'store'])->name('bmi.store');
     Route::get('/health-tests/ruffier/', [RuffierIndexController::class, 'index'])->name('ruffier.index');
     Route::post('/health-tests/ruffier/', [RuffierIndexController::class, 'store'])->name('ruffier.store');
-
+    //Workout routs
     Route::get('/workout/', [WorkoutController::class, 'index'])->name('workout.index');
     Route::get('/workout/statistic', [WorkoutController::class, 'getStatistic'])->name('workout.statistic');
     Route::get('/workout/pushups', [PushupsController::class, 'index'])->name('pushups.index');
@@ -50,11 +52,13 @@ Route::middleware('loggedIn')->group(function () {
     Route::post('/workout/pullups', [PullupsController::class, 'store'])->name('pullups.store');
     Route::get('/workout/squats', [SquatsController::class, 'index'])->name('squats.index');
     Route::post('/workout/squats', [SquatsController::class, 'store'])->name('squats.store');
-
+    //Articles routes
     Route::get('articles/create', [ArticlesController::class, 'create'])->name('articles.create');
     Route::post('articles', [ArticlesController::class, 'store'])->name('articles.store');
     Route::get('articles/{article}', [ArticlesController::class, 'show'])->name('articles.show');
     Route::get('articles/{article}/edit', [ArticlesController::class, 'edit'])->name('articles.edit')->middleware('can:update,article');
     Route::patch('articles/{article}', [ArticlesController::class, 'update'])->name('articles.update')->middleware('can:update,article');
     Route::delete('articles/{article}', [ArticlesController::class, 'destroy'])->name('articles.destroy')->middleware('can:destroy,article');
+    //Profile routes
+    Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.index');
 });
